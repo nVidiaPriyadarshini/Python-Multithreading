@@ -1,46 +1,30 @@
 import threading
 import time
 import random
+import Queue
 
-queue = []
-MAX_ITEMS = 10
-
-condition = threading.Condition()
+_queue = Queue.Queue(10)
 
 class ProducerThread(threading.Thread):
 
 	def run(self):
 		numbers = range(5)
-		global queue
-
-		while True:
-			condition.acquire()
-			if len(queue) == MAX_ITEMS:
-				print("Queue is full, producer is waiting")
-				condition.wait()
-				print("Space in queue, Consumer notified Producer")
+		global _queue
+                while True:
 			number = random.choice(numbers)
-			queue.append(number)
+			_queue.put(number)
 			print("Producer produced {}".format(number))
-			condition.notify()
-			condition.release()
-			time.sleep(random.random())
+			time.sleep(1)
 
 class ConsumerThread(threading.Thread):
 
 	def run(self):
-		global queue
+		global _queue
 		while True:
-			condition.acquire()
-			if len(queue) == 0:
-				print("Queue is empty, consumer is waiting")
-				condition.wait()
-				print("Producer adding something to queue")
-			number = queue.pop(0)
+			number = _queue.get()
+                	_queue.task_done()
 			print("Consumer consumed {}".format(number))
-			condition.notify()
-			condition.release()
-			time.sleep(random.random())
+			time.sleep(1)
 
 producer = ProducerThread()
 producer.daemon = True
