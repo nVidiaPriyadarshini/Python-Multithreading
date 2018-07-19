@@ -5,10 +5,10 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-CONSUMER_KEY= 'FXO3pOD6fQoSNr3HbAmEBDagb'
-CONSUMER_SECRET= 'o5RMl7fQNP16J7I1iM90hHyT8aJWfTqFJkitDhOdiUX7IU0pUj'
-ACCESS_TOKEN_KEY= '2962825242-TFuUe6CKbYR9IcdTHtylkdBzrEciwzpxqb8NEbW'
-ACCESS_TOKEN_SECRET= '5LVV7pTJdJheTTtHHLx53lswhI6gWPty5Ttj5yYcsdigs'
+CONSUMER_KEY= ''
+CONSUMER_SECRET= ''
+ACCESS_TOKEN_KEY= ''
+ACCESS_TOKEN_SECRET= ''
 
 api = twitter.Api(consumer_key=CONSUMER_KEY,
   consumer_secret=CONSUMER_SECRET,
