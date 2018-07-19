@@ -19,7 +19,7 @@ def send_report_results():
 
 	response = sqs.send_message(
 			QueueUrl= QUEUE_URL,
-			MessageBody=payload
+			MessageBody="This will cause Exception"
 			)
 
 	print(response)	

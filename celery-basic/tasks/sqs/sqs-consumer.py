@@ -30,7 +30,7 @@ if __name__ == '__main__':
 					print('Received and deleted message: {}'.format(message))
 			except Exception as e:
 				print('Exception in worker > ', e)
-				sqs.delete_message(QueueUrl=QUEUE_URL, ReceiptHandle=message.get('ReceiptHandle'))
+				#sqs.delete_message(QueueUrl=QUEUE_URL, ReceiptHandle=message.get('ReceiptHandle'))
 	time.sleep(10)
 
 print('WORKER STOPPED')
