@@ -9,8 +9,8 @@ from email.mime.text import MIMEText
 from .config import QUEUE_URL, ACCESS_KEY, SECRET_KEY
 sqs = boto3.client('sqs', region_name='us-east-2', aws_access_key_id=ACCESS_KEY, aws_secret_access_key=SECRET_KEY)
 
-gmail_user = "nVidiaPriyadarshini@gmail.com"
-gmail_pwd = "test1234!"
+gmail_user = ""
+gmail_pwd = ""
  
 def send_mail(to, subject, text, html, **kwargs):
 	msg = MIMEMultipart('alternative')
